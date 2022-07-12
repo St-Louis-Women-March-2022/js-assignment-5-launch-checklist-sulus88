@@ -1,5 +1,5 @@
 // Write your helper functions here!
-require('isomorphic-fetch');
+//require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
    // Here is the HTML formatting for our mission target div.
@@ -25,27 +25,29 @@ function validateInput(testInput) {
     return "Is a Number";
  }
 }
-let pilotStatus = document.getElementById("pilotStatus");
-let copilotStatus = document.getElementById("copilotStatus");
-let launchStatus = document.getElementById("launchStatus");
-let cargoStatus = document.getElementById("cargoStatus");
-let fuelStatus = document.getElementById("fuelStatus");   
+
 
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-   preventDefault();
+   
+   let pilotStatus = document.getElementById("pilotStatus");
+   let copilotStatus = document.getElementById("copilotStatus");
+   let launchStatus = document.getElementById("launchStatus");
+   let cargoStatus = document.getElementById("cargoStatus");
+   let fuelStatus = document.getElementById("fuelStatus");
+   
+   pilotStatus.innerHTML = `Pilot ${pilotName.value} Ready`
+   copilotStatus.innerHTML = `Co-pilot ${coPilotName.value} Ready`
+
 if(validateInput(pilot)==="Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel)==="Empty" 
 || validateInput(cargoLevel)==="Empty"){
    alert("All fields are required!");
+
 } else if(validateInput(pilot)==="Is a Number" || validateInput(copilot)==="Is a Number" || validateInput(fuelLevel)==="Not a Number" 
 || validateInput(cargoLevel)==="Not a Number"){
    alert("Invalid information!"); 
-}
-   pilotStatus.innerHTML = `
-                    Pilot ${pilotName.value} Ready`
-   copilotStatus.innerHTML = `
-                    Co-pilot ${coPilotName.value} Ready`
-if(fuelLevel<10000 && cargoLevel>10000){
+   
+} else if(fuelLevel<10000 && cargoLevel>10000){
    list.style.visibility = "visible"; 
    fuelStatus.innerHTML = "Fuel level too low for launch";
    cargoStatus.innerHTML = "Cargo mass too heavy for launch";
@@ -75,6 +77,7 @@ if(fuelLevel<10000 && cargoLevel>10000){
 }  
  
 }
+
 
 async function myFetch() {
     let planetsReturned;
