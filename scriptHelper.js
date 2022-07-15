@@ -1,7 +1,7 @@
 // Write your helper functions here!
 require('isomorphic-fetch');
 
-/*function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
+function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
    
          let missionTarget = document.getElementById("missionTarget");
          
@@ -18,7 +18,7 @@ require('isomorphic-fetch');
                 <img src="${imageUrl}">
               `
 
-      
+}
    // Here is the HTML formatting for our mission target div.
    /*
                 <h2>Mission Destination</h2>
@@ -54,7 +54,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
    let fuelStatus = document.getElementById("fuelStatus");
    
    pilotStatus.innerHTML = `Pilot ${pilot} Ready`
-   copilotStatus.innerHTML = `Co-pilot ${coPilot} Ready`
+   copilotStatus.innerHTML = `Co-pilot ${copilot} Ready`
 
 if(validateInput(pilot)==="Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel)==="Empty" 
 || validateInput(cargoLevel)==="Empty"){
@@ -90,17 +90,17 @@ if(validateInput(pilot)==="Empty" || validateInput(copilot) === "Empty" || valid
       launchStatus.innerHTML =  "Shuttle is ready for launch";
       launchStatus.style.color = "green";   
       fuelStatus.innerHTML = "Fuel level high enough for launch";
-      cargoSttaus.innerHTML = "Cargo mass low enough for launch";
+      cargoStatus.innerHTML = "Cargo mass low enough for launch";
 }  
  
 }
 
 
-/*async function myFetch() {
+async function myFetch() {
     let planetsReturned;
 
     planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
-    response.json()
+    return response.json();
 
     });
 
@@ -114,10 +114,10 @@ function pickPlanet(planets) {
    }
    let indexPlanets = randomSelection(planets);
    return indexPlanets;
-}*/
-
+}
+/*
 module.exports.addDestinationInfo = addDestinationInfo;
 module.exports.validateInput = validateInput;
 module.exports.formSubmission = formSubmission;
 module.exports.pickPlanet = pickPlanet; 
-module.exports.myFetch = myFetch;
+module.exports.myFetch = myFetch;*/
